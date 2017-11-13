@@ -1,0 +1,27 @@
+@include('Header')
+<div class="box box-info">
+    <div class="box-body">
+        <table class="table table-condensed">
+            <thead>
+            <tr>
+                <td width="20%">name</td>
+                <td>description</td>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($permission_groups as $group=>$permissions)
+                @php(sort($permissions))
+                <tr>
+                    <td>{{$group}}</td>
+                    <td>
+                        @foreach($permissions as $permission)
+                            <a href="#" class="btn" title="{{$permission['description']}}">{{$permission['action']}}</a>
+                        @endforeach
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+
+    </div>
+</div>
